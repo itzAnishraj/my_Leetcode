@@ -1,1 +1,40 @@
 
+class Solution {
+    public int findNumbers(int[] nums) {
+        
+       int count=0;
+        int i=0;
+        if(nums.length<1){
+            return -1;
+        }
+        while(i<nums.length){
+            int digits=digitCheck(nums[i]);
+            boolean ans=evenCheck(digits);
+            if(ans==true){
+                count++;
+            }
+            i++;
+        }
+        return count;
+    }
+
+     
+
+    static boolean evenCheck(int digits) {
+        if(digits%2==0){
+            return true;
+        }
+        return false;
+    }
+
+    static int digitCheck(int i) {
+        
+        // while(i>0){
+        //     digits++;
+        //     i/=10;
+        // }
+        
+        return (int)(Math.log10(i)+1);
+    }
+
+}
